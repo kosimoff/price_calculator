@@ -1100,7 +1100,7 @@ var render = function() {
                     }
                   ],
                   staticClass:
-                    "w-24 px-2 text-center border border-blue-700 rounded-lg",
+                    "w-24 px-2 text-center border border-blue-700 rounded-lg outline-none",
                   attrs: { type: "number", id: "length", onfocus: "select()" },
                   domProps: { value: _vm.length },
                   on: {
@@ -1133,7 +1133,7 @@ var render = function() {
                     }
                   ],
                   staticClass:
-                    "w-24 px-2 text-center border border-blue-700 rounded-lg",
+                    "w-24 px-2 text-center border border-blue-700 rounded-lg outline-none",
                   attrs: { type: "number", id: "width", onfocus: "select()" },
                   domProps: { value: _vm.width },
                   on: {
@@ -1166,7 +1166,7 @@ var render = function() {
                     }
                   ],
                   staticClass:
-                    "w-24 px-2 text-center border border-blue-700 rounded-lg",
+                    "w-24 px-2 text-center border border-blue-700 rounded-lg outline-none",
                   attrs: { type: "number", id: "door", onfocus: "select()" },
                   domProps: { value: _vm.door },
                   on: {
@@ -1199,7 +1199,7 @@ var render = function() {
                     }
                   ],
                   staticClass:
-                    "w-24 px-2 text-center border border-blue-700 rounded-lg",
+                    "w-24 px-2 text-center border border-blue-700 rounded-lg outline-none",
                   attrs: { type: "number", id: "height", onfocus: "select()" },
                   domProps: { value: _vm.height },
                   on: {
@@ -1231,7 +1231,7 @@ var render = function() {
                     }
                   ],
                   staticClass:
-                    "w-24 px-2 text-center border border-blue-700 rounded-lg",
+                    "w-24 px-2 text-center border border-blue-700 rounded-lg outline-none",
                   attrs: { type: "number", id: "area", onfocus: "select()" },
                   domProps: { value: _vm.area },
                   on: {
@@ -1265,7 +1265,7 @@ var render = function() {
                     }
                   ],
                   staticClass:
-                    "w-24 px-2 text-center border border-blue-700 rounded-lg",
+                    "w-24 px-2 text-center border border-blue-700 rounded-lg outline-none",
                   attrs: {
                     type: "number",
                     id: "perimeter",

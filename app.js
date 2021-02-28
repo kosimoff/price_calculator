@@ -1100,13 +1100,8 @@ var render = function() {
                     }
                   ],
                   staticClass:
-                    "px-2 text-center border border-blue-700 rounded-lg",
-                  attrs: {
-                    type: "number",
-                    size: "3",
-                    id: "length",
-                    onfocus: "select()"
-                  },
+                    "w-24 px-2 text-center border border-blue-700 rounded-lg",
+                  attrs: { type: "number", id: "length", onfocus: "select()" },
                   domProps: { value: _vm.length },
                   on: {
                     change: function($event) {
@@ -1138,13 +1133,8 @@ var render = function() {
                     }
                   ],
                   staticClass:
-                    "px-2 text-center border border-blue-700 rounded-lg",
-                  attrs: {
-                    type: "number",
-                    size: "3",
-                    id: "width",
-                    onfocus: "select()"
-                  },
+                    "w-24 px-2 text-center border border-blue-700 rounded-lg",
+                  attrs: { type: "number", id: "width", onfocus: "select()" },
                   domProps: { value: _vm.width },
                   on: {
                     change: function($event) {
@@ -1176,13 +1166,8 @@ var render = function() {
                     }
                   ],
                   staticClass:
-                    "px-2 text-center border border-blue-700 rounded-lg",
-                  attrs: {
-                    type: "number",
-                    size: "3",
-                    id: "door",
-                    onfocus: "select()"
-                  },
+                    "w-24 px-2 text-center border border-blue-700 rounded-lg",
+                  attrs: { type: "number", id: "door", onfocus: "select()" },
                   domProps: { value: _vm.door },
                   on: {
                     change: function($event) {
@@ -1214,13 +1199,8 @@ var render = function() {
                     }
                   ],
                   staticClass:
-                    "px-2 text-center border border-blue-700 rounded-lg",
-                  attrs: {
-                    type: "number",
-                    size: "3",
-                    id: "height",
-                    onfocus: "select()"
-                  },
+                    "w-24 px-2 text-center border border-blue-700 rounded-lg",
+                  attrs: { type: "number", id: "height", onfocus: "select()" },
                   domProps: { value: _vm.height },
                   on: {
                     change: function($event) {
@@ -1251,13 +1231,8 @@ var render = function() {
                     }
                   ],
                   staticClass:
-                    "px-2 text-center border border-blue-700 rounded-lg",
-                  attrs: {
-                    type: "number",
-                    size: "4",
-                    id: "area",
-                    onfocus: "select()"
-                  },
+                    "w-24 px-2 text-center border border-blue-700 rounded-lg",
+                  attrs: { type: "number", id: "area", onfocus: "select()" },
                   domProps: { value: _vm.area },
                   on: {
                     change: function($event) {
@@ -1290,10 +1265,9 @@ var render = function() {
                     }
                   ],
                   staticClass:
-                    "px-2 text-center border border-blue-700 rounded-lg",
+                    "w-24 px-2 text-center border border-blue-700 rounded-lg",
                   attrs: {
                     type: "number",
-                    size: "4",
                     id: "perimeter",
                     onfocus: "select()"
                   },

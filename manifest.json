@@ -1,6 +1,6 @@
 {
-  "short_name": "Калькулятор цены",
-  "name": "Калькулятор цены",
+  "short_name": "Цена",
+  "name": "Цена",
   "icons": [
     {
       "src": "images/android-icon-36x36.png",

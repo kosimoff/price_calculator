@@ -1773,8 +1773,13 @@ var render = function() {
                   expression: "exchangeRate"
                 }
               ],
-              staticClass: "px-2 text-center border border-blue-700 rounded-lg",
-              attrs: { type: "text", size: "4", id: "exchangeRate" },
+              staticClass:
+                "w-24 px-2 text-center border border-blue-700 rounded-lg outline-none",
+              attrs: {
+                type: "number",
+                id: "exchangeRate",
+                onfocus: "select()"
+              },
               domProps: { value: _vm.exchangeRate },
               on: {
                 change: function($event) {
@@ -1801,8 +1806,9 @@ var render = function() {
                   expression: "formula"
                 }
               ],
-              staticClass: "px-2 text-center border border-blue-700 rounded-lg",
-              attrs: { type: "text", size: "3", id: "formula" },
+              staticClass:
+                "w-24 px-2 text-center border border-blue-700 rounded-lg outline-none",
+              attrs: { type: "number", id: "formula", onfocus: "select()" },
               domProps: { value: _vm.formula },
               on: {
                 change: function($event) {
@@ -1876,7 +1882,13 @@ var render = function() {
                       "$ * " +
                       _vm._s((_vm.area * 1).toFixed(2)) +
                       "м² = " +
-                      _vm._s(_vm.glassThicknessPrice.toFixed(2)) +
+                      _vm._s(
+                        (
+                          (_vm.glassThicknessPriceList["10мм"] -
+                            _vm.glassThicknessPriceList["8мм"]) *
+                          _vm.area
+                        ).toFixed(1)
+                      ) +
                       "$"
                   )
                 ])

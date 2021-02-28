@@ -232,13 +232,21 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: "Application",
   props: [],
   data: function data() {
     return {
       result: false,
-      shape: 'Ввести площадь',
+      shape: 'Вручную',
       // unit: 'м',
       activeColor: '#2c5282',
       passiveColor: '#2b6cb0',
@@ -300,69 +308,6 @@ __webpack_require__.r(__webpack_exports__);
   },
   calculated: {},
   methods: {
-    // toM: function () {
-    //   switch (this.unit) {
-    //     case 'мм':
-    //     this.height /= 1000
-    //     this.length /= 1000
-    //     this.width /= 1000
-    //     this.door /= 1000
-    //     break;
-    //
-    //     case 'см':
-    //     this.height /= 100
-    //     this.length /= 100
-    //     this.width /= 100
-    //     this.door /= 100
-    //     break;
-    //
-    //     default:
-    //
-    //   }
-    // },
-    //
-    // toCM: function () {
-    //   switch (this.unit) {
-    //     case 'мм':
-    //     this.height /= 10
-    //     this.length /= 10
-    //     this.width /= 10
-    //     this.door /= 10
-    //     break;
-    //
-    //     case 'м':
-    //     this.height *= 100
-    //     this.length *= 100
-    //     this.width *= 100
-    //     this.door *= 100
-    //     break;
-    //
-    //     default:
-    //
-    //   }
-    // },
-    //
-    // toMM: function () {
-    //   switch (this.unit) {
-    //
-    //     case 'см':
-    //     this.height *= 10
-    //     this.length *= 10
-    //     this.width *= 10
-    //     this.door *= 10
-    //     break;
-    //
-    //     case 'м':
-    //     this.height *= 1000
-    //     this.length *= 1000
-    //     this.width *= 1000
-    //     this.door *= 1000
-    //     break;
-    //
-    //     default:
-    //
-    //   }
-    // },
     getArea: function getArea() {
       switch (this.shape) {
         case 'Прямая':
@@ -375,14 +320,14 @@ __webpack_require__.r(__webpack_exports__);
           this.area = this.perimeter * this.height / 100;
           break;
 
-        case 'Восьмиугольная':
-          this.perimeter = this.length / 100 - Math.Squaret(this.door / 100 * this.door / 100 / 2) + (this.width / 100 - Math.Squaret(this.door / 100 * this.door / 100 / 2)) + this.door / 100;
+        case 'Кривая':
+          this.perimeter = this.length / 100 - Math.sqrt(this.door / 100 * this.door / 100 / 2) + (this.width / 100 - Math.sqrt(this.door / 100 * this.door / 100 / 2)) + this.door / 100;
           this.area = this.perimeter * this.height / 100;
           break;
       }
     },
     calculate: function calculate() {
-      if (this.shape != 'Ввести площадь') {
+      if (this.shape != 'Вручную') {
         this.getArea();
       } else {
         this.area = (this.area * 1).toFixed(2);
@@ -396,7 +341,7 @@ __webpack_require__.r(__webpack_exports__);
         this.fixerQuantity = 0;
         this.glassThickness = '8мм';
 
-        if (this.shape === 'Восьмиугольная') {
+        if (this.shape === 'Кривая') {
           this.shape = 'Прямая';
         }
 
@@ -426,34 +371,7 @@ __webpack_require__.r(__webpack_exports__);
         this.thirdHingePrice = 20;
       } else {
         this.thirdHingePrice = 0;
-      } // if(this.area <= 1.2) {
-      //   this.squareMeterPrice = 130
-      // }
-      //
-      // if(this.area > 1.2 && this.area <= 1.6) {
-      //   this.squareMeterPrice = 125
-      // }
-      //
-      // if(this.area > 1.6 && this.area <= 2) {
-      //   this.squareMeterPrice = 120
-      // }
-      //
-      // if(this.area > 2 && this.area <= 2.6) {
-      //   this.squareMeterPrice = 115
-      // }
-      //
-      // if(this.area > 2.6 && this.area <= 3.2) {
-      //   this.squareMeterPrice = 110
-      // }
-      //
-      // if(this.area > 3.2 && this.area <= 3.6) {
-      //   this.squareMeterPrice = 105
-      // }
-      //
-      // if(this.area > 3.6) {
-      //   this.squareMeterPrice = 100
-      // }
-
+      }
 
       if (this.area <= 1.2) {
         this.squareMeterPrice = 130;
@@ -1094,18 +1012,16 @@ var render = function() {
                   "py-1 px-2 bg-blue-700 hover:bg-blue-800 rounded-lg focus:outline-none text-white",
                 style: {
                   backgroundColor:
-                    _vm.shape === "Ввести площадь"
-                      ? _vm.activeColor
-                      : _vm.passiveColor
+                    _vm.shape === "Вручную" ? _vm.activeColor : _vm.passiveColor
                 },
                 attrs: { type: "button", name: "button" },
                 on: {
                   click: function($event) {
-                    ;(_vm.shape = "Ввести площадь"), _vm.calculate()
+                    ;(_vm.shape = "Вручную"), _vm.calculate()
                   }
                 }
               },
-              [_vm._v("Ввести площадь")]
+              [_vm._v("Вручную")]
             ),
             _vm._v(" "),
             _c(
@@ -1154,23 +1070,23 @@ var render = function() {
                       "py-1 px-2 bg-blue-700 hover:bg-blue-800 rounded-lg focus:outline-none text-white",
                     style: {
                       backgroundColor:
-                        _vm.shape === "Восьмиугольная"
+                        _vm.shape === "Кривая"
                           ? _vm.activeColor
                           : _vm.passiveColor
                     },
                     attrs: { type: "button", name: "button" },
                     on: {
                       click: function($event) {
-                        ;(_vm.shape = "Восьмиугольная"), _vm.calculate()
+                        ;(_vm.shape = "Кривая"), _vm.calculate()
                       }
                     }
                   },
-                  [_vm._v("Восьмиугольная")]
+                  [_vm._v("Кривая")]
                 )
               : _vm._e()
           ]),
           _vm._v(" "),
-          _vm.shape != "Ввести площадь"
+          _vm.shape != "Вручную"
             ? _c("div", { staticClass: "mt-2" }, [
                 _c("label", { attrs: { for: "length" } }, [_vm._v("Длина:")]),
                 _vm._v(" "),
@@ -1185,7 +1101,12 @@ var render = function() {
                   ],
                   staticClass:
                     "px-2 text-center border border-blue-700 rounded-lg",
-                  attrs: { type: "text", size: "3", id: "length" },
+                  attrs: {
+                    type: "number",
+                    size: "3",
+                    id: "length",
+                    onfocus: "select()"
+                  },
                   domProps: { value: _vm.length },
                   on: {
                     change: function($event) {
@@ -1203,7 +1124,7 @@ var render = function() {
               ])
             : _vm._e(),
           _vm._v(" "),
-          _vm.shape != "Прямая" && _vm.shape != "Ввести площадь"
+          _vm.shape != "Прямая" && _vm.shape != "Вручную"
             ? _c("div", { staticClass: "mt-2" }, [
                 _c("label", { attrs: { for: "width" } }, [_vm._v("Ширина:")]),
                 _vm._v(" "),
@@ -1218,7 +1139,12 @@ var render = function() {
                   ],
                   staticClass:
                     "px-2 text-center border border-blue-700 rounded-lg",
-                  attrs: { type: "text", size: "3", id: "width" },
+                  attrs: {
+                    type: "number",
+                    size: "3",
+                    id: "width",
+                    onfocus: "select()"
+                  },
                   domProps: { value: _vm.width },
                   on: {
                     change: function($event) {
@@ -1236,7 +1162,7 @@ var render = function() {
               ])
             : _vm._e(),
           _vm._v(" "),
-          _vm.shape === "Восьмиугольная" && _vm.shape != "Ввести площадь"
+          _vm.shape === "Кривая" && _vm.shape != "Вручную"
             ? _c("div", { staticClass: "mt-2" }, [
                 _c("label", { attrs: { for: "door" } }, [_vm._v("Дверь:")]),
                 _vm._v(" "),
@@ -1251,7 +1177,12 @@ var render = function() {
                   ],
                   staticClass:
                     "px-2 text-center border border-blue-700 rounded-lg",
-                  attrs: { type: "text", size: "3", id: "door" },
+                  attrs: {
+                    type: "number",
+                    size: "3",
+                    id: "door",
+                    onfocus: "select()"
+                  },
                   domProps: { value: _vm.door },
                   on: {
                     change: function($event) {
@@ -1269,7 +1200,7 @@ var render = function() {
               ])
             : _vm._e(),
           _vm._v(" "),
-          _vm.shape != "Ввести площадь"
+          _vm.shape != "Вручную"
             ? _c("div", { staticClass: "mt-2" }, [
                 _c("label", { attrs: { for: "height" } }, [_vm._v("Высота:")]),
                 _vm._v(" "),
@@ -1284,7 +1215,12 @@ var render = function() {
                   ],
                   staticClass:
                     "px-2 text-center border border-blue-700 rounded-lg",
-                  attrs: { type: "text", size: "3", id: "height" },
+                  attrs: {
+                    type: "number",
+                    size: "3",
+                    id: "height",
+                    onfocus: "select()"
+                  },
                   domProps: { value: _vm.height },
                   on: {
                     change: function($event) {
@@ -1302,7 +1238,7 @@ var render = function() {
               ])
             : _vm._e(),
           _vm._v(" "),
-          _vm.shape === "Ввести площадь"
+          _vm.shape === "Вручную"
             ? _c("div", { staticClass: "m-2" }, [
                 _c("label", { attrs: { for: "area" } }, [_vm._v("Площадь: ")]),
                 _c("input", {
@@ -1316,7 +1252,12 @@ var render = function() {
                   ],
                   staticClass:
                     "px-2 text-center border border-blue-700 rounded-lg",
-                  attrs: { type: "text", size: "4", id: "area" },
+                  attrs: {
+                    type: "number",
+                    size: "4",
+                    id: "area",
+                    onfocus: "select()"
+                  },
                   domProps: { value: _vm.area },
                   on: {
                     change: function($event) {
@@ -1334,7 +1275,7 @@ var render = function() {
               ])
             : _vm._e(),
           _vm._v(" "),
-          _vm.shape === "Ввести площадь"
+          _vm.shape === "Вручную"
             ? _c("div", { staticClass: "m-2" }, [
                 _c("label", { attrs: { for: "perimeter" } }, [
                   _vm._v("Периметр: ")
@@ -1350,7 +1291,12 @@ var render = function() {
                   ],
                   staticClass:
                     "px-2 text-center border border-blue-700 rounded-lg",
-                  attrs: { type: "text", size: "4", id: "perimeter" },
+                  attrs: {
+                    type: "number",
+                    size: "4",
+                    id: "perimeter",
+                    onfocus: "select()"
+                  },
                   domProps: { value: _vm.perimeter },
                   on: {
                     change: function($event) {
@@ -1806,13 +1752,41 @@ var render = function() {
     _vm._v(" "),
     _vm.result
       ? _c("div", {}, [
+          _vm.shape != "Вручную"
+            ? _c("p", { staticClass: "mt-2" }, [
+                _vm._v("Длина: " + _vm._s(_vm.length) + " см")
+              ])
+            : _vm._e(),
+          _vm._v(" "),
+          _vm.shape === "Угловая" || _vm.shape === "Кривая"
+            ? _c("p", { staticClass: "mt-2" }, [
+                _vm._v("Ширина: " + _vm._s(_vm.width) + " см")
+              ])
+            : _vm._e(),
+          _vm._v(" "),
+          _vm.shape === "Кривая"
+            ? _c("p", { staticClass: "mt-2" }, [
+                _vm._v("Дверь: " + _vm._s(_vm.door) + " см")
+              ])
+            : _vm._e(),
+          _vm._v(" "),
+          _vm.shape != "Вручную"
+            ? _c("p", { staticClass: "mt-2" }, [
+                _vm._v("Высота: " + _vm._s(_vm.height) + " см")
+              ])
+            : _vm._e(),
+          _vm._v(" "),
           _c("p", { staticClass: "mt-2" }, [
             _vm._v("Площадь: " + _vm._s((_vm.area * 1).toFixed(2)) + "м²")
           ]),
           _vm._v(" "),
-          _c("p", { staticClass: "mt-2" }, [
-            _vm._v("Периметр: " + _vm._s((_vm.perimeter * 1).toFixed(2)) + "м")
-          ]),
+          _vm.borderType != "Без бардюра"
+            ? _c("p", { staticClass: "mt-2" }, [
+                _vm._v(
+                  "Периметр: " + _vm._s((_vm.perimeter * 1).toFixed(2)) + "м"
+                )
+              ])
+            : _vm._e(),
           _vm._v(" "),
           _c("div", { staticClass: "mt-2" }, [
             _c("label", { attrs: { for: "exchangeRate" } }, [_vm._v("Курс: ")]),
@@ -1871,12 +1845,27 @@ var render = function() {
           ]),
           _vm._v(" "),
           _c("div", {}, [
+            _vm.type === "Простое"
+              ? _c("p", [
+                  _vm._v("Тип фурнитуры: " + _vm._s(_vm.type.toLowerCase()))
+                ])
+              : _vm._e(),
+            _vm._v(" "),
             _vm.type === "Профильное"
               ? _c("p", [
                   _vm._v(_vm._s(_vm.type) + ": " + _vm._s(_vm.typePrice) + "$")
                 ])
               : _vm._e(),
             _vm._v(" "),
+            _vm.type === "Простое" && _vm.accessoriesFinish === "Серебро"
+              ? _c("p", [
+                  _vm._v(
+                    "Цвет фурнитуры: " +
+                      _vm._s(_vm.accessoriesFinish.toLowerCase()) +
+                      "\n      "
+                  )
+                ])
+              : _vm._e(),
             _vm.type === "Простое" && _vm.accessoriesFinish != "Серебро"
               ? _c("p", [
                   _vm._v(
@@ -1896,19 +1885,34 @@ var render = function() {
                 ])
               : _vm._e(),
             _vm._v(" "),
-            _c("p", [
-              _vm._v(
-                "Стекло (" +
-                  _vm._s(_vm.glassThickness) +
-                  "): " +
-                  _vm._s(_vm.glassThicknessPriceList[this.glassThickness]) +
-                  "$ * " +
-                  _vm._s((_vm.area * 1).toFixed(2)) +
-                  "м² = " +
-                  _vm._s(_vm.glassThicknessPrice.toFixed(2)) +
-                  "$"
-              )
-            ]),
+            _vm.glassThickness === "8мм"
+              ? _c("p", [_vm._v("Стекло: " + _vm._s(_vm.glassThickness))])
+              : _vm._e(),
+            _vm._v(" "),
+            _vm.glassThickness === "10мм"
+              ? _c("p", [
+                  _vm._v(
+                    "Стекло (" +
+                      _vm._s(_vm.glassThickness) +
+                      "): " +
+                      _vm._s(
+                        _vm.glassThicknessPriceList["10мм"] -
+                          _vm.glassThicknessPriceList["8мм"]
+                      ) +
+                      "$ * " +
+                      _vm._s((_vm.area * 1).toFixed(2)) +
+                      "м² = " +
+                      _vm._s(_vm.glassThicknessPrice.toFixed(2)) +
+                      "$"
+                  )
+                ])
+              : _vm._e(),
+            _vm._v(" "),
+            _vm.glassFinish === "Прозрачное"
+              ? _c("p", [
+                  _vm._v("Тип стекла: " + _vm._s(_vm.glassFinish.toLowerCase()))
+                ])
+              : _vm._e(),
             _vm._v(" "),
             _vm.glassFinish != "Прозрачное"
               ? _c("p", [
@@ -1981,7 +1985,7 @@ var render = function() {
               _c("b", [_vm._v("По формулe:")]),
               _vm._v(
                 " " +
-                  _vm._s(_vm.totalFormula) +
+                  _vm._s(_vm.totalFormula.toFixed(0)) +
                   "$ (" +
                   _vm._s((_vm.totalFormula / _vm.area).toFixed(0)) +
                   "$/м²)"
@@ -1989,7 +1993,7 @@ var render = function() {
             ]),
             _vm._v(" "),
             _c("p", [
-              _c("b", [_vm._v("По квадратному метру:")]),
+              _c("b", [_vm._v("По м²:")]),
               _vm._v(
                 " " +
                   _vm._s(_vm.totalSquareMeter.toFixed(0)) +
